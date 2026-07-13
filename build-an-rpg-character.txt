@@ -1,0 +1,40 @@
+** start of main.py **
+
+full_dot = '●'
+empty_dot = '○'
+numbers = 10
+
+def create_character(name, STR, INT, CHA):
+    #sum_of = STR + INT + CHA
+    if not isinstance(name, str):
+      return "The character name should be a string" 
+    if name =="":
+      return "The character should have a name"
+    if len(name) > 10:
+      return "The character name is too long"
+    if " " in name:
+      return "The character name should not contain spaces"
+    if not isinstance (STR, int) or not isinstance (INT, int) or not isinstance(CHA, int): #and not isinstance(INT, int) and not isinstance(CHA, int):
+      return "All stats should be integers"
+    if STR < 1 or INT < 1 or CHA < 1:
+      return "All stats should be no less than 1"
+    if STR > 4 or INT > 4 or CHA > 4:
+      return "All stats should be no more than 4"
+    if STR + INT + CHA != 7:
+      return "The character should start with 7 points"
+    if isinstance(name, str) and name != "" and (len(name) <= 10 and len(name) >= 1) and not " " in name and isinstance(STR, int) and isinstance(INT, int) and isinstance(CHA,int) and STR >= 1 and INT >= 1 and CHA >= 1 and STR <= 4 and INT <= 4 and CHA <= 4 and (STR + INT + CHA >= 7):
+      str_of = numbers - STR
+      int_of = numbers - INT
+      cha_of = numbers - CHA
+      return f"{name}\nSTR {full_dot * STR}{empty_dot * str_of}\nINT {full_dot * INT}{empty_dot * int_of }\nCHA {full_dot * CHA}{empty_dot * cha_of}"
+
+result = create_character(
+"ren", 4 , 2 , 1)
+
+print(result)    
+    
+
+
+
+** end of main.py **
+
