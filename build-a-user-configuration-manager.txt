@@ -1,0 +1,45 @@
+** start of main.py **
+
+test_settings = {'name' : 'Saadodin', 'age' : '27'}
+def add_setting(settings, setting):
+    key, value = setting
+    key = key.lower()
+    value = value.lower()
+    if key in settings:
+        return f"Setting '{key}' already exists! Cannot add a new setting with this name."
+    else:
+       settings[key] = value
+       return f"Setting '{key}' added with value '{value}' successfully!"
+def update_setting(settings, setting):
+    key, value = setting
+    key = key.lower()
+    value = value.lower()
+    if key in settings:
+        settings[key] = value
+        return f"Setting '{key}' updated to '{value}' successfully!"
+    else:
+        return f"Setting '{key}' does not exist! Cannot update a non-existing setting."
+def delete_setting(settings, setting):
+    setting = setting.lower()
+    if setting in settings:
+        settings.pop(setting)
+        return f"Setting '{setting}' deleted successfully!"
+    else:
+        return f"Setting not found!"
+
+def view_settings(settings):
+    if settings == {}:
+        return f"No settings available."
+    else:
+        return f"Current User Settings:\n" + "\n".join(f"{x.title()}: {y}"for x, y in settings.items()) + "\n"
+
+setting_sample = {}  
+
+print(view_settings(test_settings))
+#print(update_settings(test_settings, ('age', '25000')))
+#print(test_settings)
+    
+    
+
+** end of main.py **
+
